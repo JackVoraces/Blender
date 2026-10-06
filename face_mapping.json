@@ -1,0 +1,50 @@
+{
+  "format": "rn.face_mapping/1",
+  "about": [
+    "Human face signals (MediaPipe blendshape scores, 0..1) -> robot expression controls.",
+    "Each control is  clamp( sum over terms of  gain * deadzone( (score - neutral) / (1 - neutral) ) ).",
+    "  neutral   = the score recorded during neutral calibration (set \"baseline\": false to skip it)",
+    "  normalize = the division by (1 - neutral): resting scores are far from 0 (browDown rests near 0.4",
+    "              on some faces), so this makes 'from your neutral to the maximum' the full 0..1 range",
+    "  deadzone  = ignore changes smaller than this, so tracker noise cannot move a plate",
+    "  gain      = exaggeration; robot motion should be bigger than the human movement behind it",
+    "{S} is the robot side (L/R) and {Side} the matching human side (Left/Right).",
+    "With camera.mirror on, the two are swapped so the avatar acts like a reflection.",
+    "Source names are the exact category names MediaPipe 1.0 returns (see README).",
+    "Note: cheekSquintLeft/Right read 0 with the current MediaPipe model; the smile and",
+    "eye-squint terms are what actually lift the cheeks."
+  ],
+
+  "defaults": {"deadzone": 0.03, "gain": 1.0, "baseline": true, "normalize": true},
+
+  "controls": {
+    "BROW_{S}_RAISE": {
+      "clamp": [0, 1],
+      "terms": [
+        {"src": "browOuterUp{Side}", "gain": 1.7, "deadzone": 0.04},
+        {"src": "browInnerUp",       "gain": 1.1, "deadzone": 0.05}
+      ]
+    },
+    "BROW_{S}_LOWER": {
+      "clamp": [0, 1],
+      "terms": [
+        {"src": "browDown{Side}", "gain": 1.9, "deadzone": 0.05}
+      ]
+    },
+    "EYE_{S}_OPEN": {
+      "clamp": [-1, 1],
+      "terms": [
+        {"src": "eyeBlink{Side}", "gain": -1.7, "deadzone": 0.05},
+        {"src": "eyeWide{Side}",  "gain": 2.6,  "deadzone": 0.04}
+      ]
+    },
+    "CHEEK_{S}_RAISE": {
+      "clamp": [0, 1],
+      "terms": [
+        {"src": "mouthSmile{Side}",  "gain": 1.35, "deadzone": 0.05},
+        {"src": "eyeSquint{Side}",   "gain": 0.6,  "deadzone": 0.06},
+        {"src": "cheekSquint{Side}", "gain": 1.0,  "deadzone": 0.03}
+      ]
+    }
+  }
+}

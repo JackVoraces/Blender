@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://assets/robot_prototype.glb" id="2_model"]
+[ext_resource type="Script" path="res://scripts/face_rig.gd" id="3_rig"]
+[ext_resource type="Script" path="res://scripts/udp_receiver.gd" id="4_udp"]
+
+[sub_resource type="Environment" id="Environment_stage"]
+background_mode = 1
+background_color = Color(0.045, 0.045, 0.052, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.6, 0.62, 0.68, 1)
+ambient_light_energy = 0.45
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_main")
+
+[node name="Model" parent="." instance=ExtResource("2_model")]
+
+[node name="FaceRig" type="Node" parent="."]
+script = ExtResource("3_rig")
+
+[node name="UdpReceiver" type="Node" parent="."]
+script = ExtResource("4_udp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64, 1.15)
+fov = 23.9
+near = 0.05
+far = 20.0
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="FillLight" type="DirectionalLight3D" parent="."]
+light_color = Color(0.88, 0.93, 1, 1)
+light_energy = 0.5
+
+[node name="RimLight" type="DirectionalLight3D" parent="."]
+light_energy = 1.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_stage")
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="Stats" type="Label" parent="Overlay"]
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 900.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 16

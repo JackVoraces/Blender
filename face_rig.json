@@ -1,0 +1,52 @@
+{
+  "format": "rn.face_rig/1",
+  "about": [
+    "Robot expression controls -> rigid plate motion.  PROTOTYPE rig (phase 1): four moving plates per side.",
+    "Units: loc_mm / rot_deg / delay_ms, expressed in each plate's own mechanical frame:",
+    "  +X = towards the character's left along the surface, +Y = into the head, +Z = up along the surface.",
+    "Write values for the LEFT side only; {S} expands to L and R and the right side is mirrored automatically",
+    "  (loc x negated, rot y and rot z negated).",
+    "'when': 'pos' / 'neg' uses only the positive / negative part of a -1..+1 control.",
+    "After editing run rn_blender.pipeline.rebuild_rig() in Blender (rebinds drivers and re-exports for Godot)."
+  ],
+
+  "controls": {
+    "BROW_{S}_RAISE":  {"range": [0, 1],  "doc": "Brow lifts; forehead plate follows"},
+    "BROW_{S}_LOWER":  {"range": [0, 1],  "doc": "Brow presses down and slants inward; lid narrows"},
+    "EYE_{S}_OPEN":    {"range": [-1, 1], "doc": "-1 closed, 0 neutral, +1 wide"},
+    "CHEEK_{S}_RAISE": {"range": [0, 1],  "doc": "Cheek plate rises into the eye line (smile)"}
+  },
+
+  "nodes": {
+    "brow_{S}":      {"limits": {"loc_mm": {"z": [-6.0, 7.0]},                     "rot_deg": {"y": [-14.0, 6.0]}}},
+    "forehead_{S}":  {"limits": {"loc_mm": {"z": [-3.5, 4.5]},                     "rot_deg": {"x": [-3.0, 4.0]}}},
+    "upper_lid_{S}": {"limits": {"loc_mm": {"z": [-12.5, 3.5]}}},
+    "cheek_{S}":     {"limits": {"loc_mm": {"x": [-2.0, 0.5], "z": [-0.5, 7.5]},   "rot_deg": {"y": [-8.0, 1.0]}}}
+  },
+
+  "links": [
+    {"control": "BROW_{S}_RAISE",  "node": "brow_{S}",      "loc_mm": [0, 0, 6.0],   "rot_deg": [0, -5.0, 0]},
+    {"control": "BROW_{S}_RAISE",  "node": "forehead_{S}",  "loc_mm": [0, 0, 4.0],   "rot_deg": [3.5, 0, 0], "delay_ms": 40},
+    {"control": "BROW_{S}_RAISE",  "node": "upper_lid_{S}", "loc_mm": [0, 0, 1.0],   "delay_ms": 20},
+
+    {"control": "BROW_{S}_LOWER",  "node": "brow_{S}",      "loc_mm": [0, 0, -5.5],  "rot_deg": [0, -7.0, 0]},
+    {"control": "BROW_{S}_LOWER",  "node": "forehead_{S}",  "loc_mm": [0, 0, -3.0],  "rot_deg": [-2.5, 0, 0], "delay_ms": 40},
+    {"control": "BROW_{S}_LOWER",  "node": "upper_lid_{S}", "loc_mm": [0, 0, -3.0],  "delay_ms": 20},
+
+    {"control": "EYE_{S}_OPEN", "when": "neg", "node": "upper_lid_{S}", "loc_mm": [0, 0, -12.0]},
+    {"control": "EYE_{S}_OPEN", "when": "pos", "node": "upper_lid_{S}", "loc_mm": [0, 0, 2.5]},
+    {"control": "EYE_{S}_OPEN", "when": "neg", "node": "cheek_{S}",     "loc_mm": [0, 0, 1.5], "delay_ms": 30},
+
+    {"control": "CHEEK_{S}_RAISE", "node": "cheek_{S}",     "loc_mm": [-1.5, 0, 6.0], "rot_deg": [0, -6.0, 0]}
+  ],
+
+  "head": {
+    "about": "Tracked head rotation is shared out over these bones; lag makes the neck and chest follow late.",
+    "bones": {
+      "head":  {"share": 0.60, "lag_ms": 0},
+      "neck":  {"share": 0.30, "lag_ms": 70},
+      "chest": {"share": 0.10, "lag_ms": 140}
+    },
+    "limits_deg": {"yaw": [-45, 45], "pitch": [-25, 30], "roll": [-25, 25]}
+  }
+}

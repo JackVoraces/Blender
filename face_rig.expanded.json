@@ -1,0 +1,651 @@
+{
+  "format": "rn.face_rig.expanded/1",
+  "units": "metres, radians, seconds; node-local Blender axes",
+  "controls": {
+    "BROW_L_RAISE": {
+      "min": 0.0,
+      "max": 1.0,
+      "doc": "Brow lifts; forehead plate follows"
+    },
+    "BROW_R_RAISE": {
+      "min": 0.0,
+      "max": 1.0,
+      "doc": "Brow lifts; forehead plate follows"
+    },
+    "BROW_L_LOWER": {
+      "min": 0.0,
+      "max": 1.0,
+      "doc": "Brow presses down and slants inward; lid narrows"
+    },
+    "BROW_R_LOWER": {
+      "min": 0.0,
+      "max": 1.0,
+      "doc": "Brow presses down and slants inward; lid narrows"
+    },
+    "EYE_L_OPEN": {
+      "min": -1.0,
+      "max": 1.0,
+      "doc": "-1 closed, 0 neutral, +1 wide"
+    },
+    "EYE_R_OPEN": {
+      "min": -1.0,
+      "max": 1.0,
+      "doc": "-1 closed, 0 neutral, +1 wide"
+    },
+    "CHEEK_L_RAISE": {
+      "min": 0.0,
+      "max": 1.0,
+      "doc": "Cheek plate rises into the eye line (smile)"
+    },
+    "CHEEK_R_RAISE": {
+      "min": 0.0,
+      "max": 1.0,
+      "doc": "Cheek plate rises into the eye line (smile)"
+    }
+  },
+  "nodes": {
+    "brow_L": {
+      "links": [
+        {
+          "control": "BROW_L_RAISE",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            0.006
+          ],
+          "rot": [
+            0.0,
+            -0.087266463,
+            0.0
+          ],
+          "delay": 0.0
+        },
+        {
+          "control": "BROW_L_LOWER",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            -0.0055
+          ],
+          "rot": [
+            0.0,
+            -0.122173048,
+            0.0
+          ],
+          "delay": 0.0
+        }
+      ],
+      "limits": {
+        "loc": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.006,
+            0.007
+          ]
+        ],
+        "rot": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.244346095,
+            0.104719755
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "brow_R": {
+      "links": [
+        {
+          "control": "BROW_R_RAISE",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            0.006
+          ],
+          "rot": [
+            0.0,
+            0.087266463,
+            0.0
+          ],
+          "delay": 0.0
+        },
+        {
+          "control": "BROW_R_LOWER",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            -0.0055
+          ],
+          "rot": [
+            0.0,
+            0.122173048,
+            0.0
+          ],
+          "delay": 0.0
+        }
+      ],
+      "limits": {
+        "loc": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.006,
+            0.007
+          ]
+        ],
+        "rot": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.104719755,
+            0.244346095
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "forehead_L": {
+      "links": [
+        {
+          "control": "BROW_L_RAISE",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            0.004
+          ],
+          "rot": [
+            0.061086524,
+            0.0,
+            0.0
+          ],
+          "delay": 0.04
+        },
+        {
+          "control": "BROW_L_LOWER",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            -0.003
+          ],
+          "rot": [
+            -0.043633231,
+            0.0,
+            0.0
+          ],
+          "delay": 0.04
+        }
+      ],
+      "limits": {
+        "loc": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.0035,
+            0.0045
+          ]
+        ],
+        "rot": [
+          [
+            -0.052359878,
+            0.06981317
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "forehead_R": {
+      "links": [
+        {
+          "control": "BROW_R_RAISE",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            0.004
+          ],
+          "rot": [
+            0.061086524,
+            0.0,
+            0.0
+          ],
+          "delay": 0.04
+        },
+        {
+          "control": "BROW_R_LOWER",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            -0.003
+          ],
+          "rot": [
+            -0.043633231,
+            0.0,
+            0.0
+          ],
+          "delay": 0.04
+        }
+      ],
+      "limits": {
+        "loc": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.0035,
+            0.0045
+          ]
+        ],
+        "rot": [
+          [
+            -0.052359878,
+            0.06981317
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "upper_lid_L": {
+      "links": [
+        {
+          "control": "BROW_L_RAISE",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            0.001
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.02
+        },
+        {
+          "control": "BROW_L_LOWER",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            -0.003
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.02
+        },
+        {
+          "control": "EYE_L_OPEN",
+          "when": "neg",
+          "loc": [
+            0.0,
+            0.0,
+            -0.012
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.0
+        },
+        {
+          "control": "EYE_L_OPEN",
+          "when": "pos",
+          "loc": [
+            0.0,
+            0.0,
+            0.0025
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.0
+        }
+      ],
+      "limits": {
+        "loc": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.0125,
+            0.0035
+          ]
+        ],
+        "rot": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "upper_lid_R": {
+      "links": [
+        {
+          "control": "BROW_R_RAISE",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            0.001
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.02
+        },
+        {
+          "control": "BROW_R_LOWER",
+          "when": "both",
+          "loc": [
+            0.0,
+            0.0,
+            -0.003
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.02
+        },
+        {
+          "control": "EYE_R_OPEN",
+          "when": "neg",
+          "loc": [
+            0.0,
+            0.0,
+            -0.012
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.0
+        },
+        {
+          "control": "EYE_R_OPEN",
+          "when": "pos",
+          "loc": [
+            0.0,
+            0.0,
+            0.0025
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.0
+        }
+      ],
+      "limits": {
+        "loc": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.0125,
+            0.0035
+          ]
+        ],
+        "rot": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "cheek_L": {
+      "links": [
+        {
+          "control": "EYE_L_OPEN",
+          "when": "neg",
+          "loc": [
+            0.0,
+            0.0,
+            0.0015
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.03
+        },
+        {
+          "control": "CHEEK_L_RAISE",
+          "when": "both",
+          "loc": [
+            -0.0015,
+            0.0,
+            0.006
+          ],
+          "rot": [
+            0.0,
+            -0.104719755,
+            0.0
+          ],
+          "delay": 0.0
+        }
+      ],
+      "limits": {
+        "loc": [
+          [
+            -0.002,
+            0.0005
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.0005,
+            0.0075
+          ]
+        ],
+        "rot": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.13962634,
+            0.017453293
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "cheek_R": {
+      "links": [
+        {
+          "control": "EYE_R_OPEN",
+          "when": "neg",
+          "loc": [
+            0.0,
+            0.0,
+            0.0015
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "delay": 0.03
+        },
+        {
+          "control": "CHEEK_R_RAISE",
+          "when": "both",
+          "loc": [
+            0.0015,
+            0.0,
+            0.006
+          ],
+          "rot": [
+            0.0,
+            0.104719755,
+            0.0
+          ],
+          "delay": 0.0
+        }
+      ],
+      "limits": {
+        "loc": [
+          [
+            -0.0005,
+            0.002
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.0005,
+            0.0075
+          ]
+        ],
+        "rot": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.017453293,
+            0.13962634
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    }
+  },
+  "head": {
+    "bones": {
+      "head": {
+        "share": 0.6,
+        "lag": 0.0
+      },
+      "neck": {
+        "share": 0.3,
+        "lag": 0.07
+      },
+      "chest": {
+        "share": 0.1,
+        "lag": 0.14
+      }
+    },
+    "limits": {
+      "yaw": [
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "pitch": [
+        -0.4363323129985824,
+        0.5235987755982988
+      ],
+      "roll": [
+        -0.4363323129985824,
+        0.4363323129985824
+      ]
+    }
+  },
+  "warnings": []
+}

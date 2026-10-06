@@ -1,0 +1,12 @@
+{
+  "01_neutral": {},
+  "02_brow_L_raise": {"BROW_L_RAISE": 1.0},
+  "03_brow_R_raise": {"BROW_R_RAISE": 1.0},
+  "04_brows_lower": {"BROW_L_LOWER": 1.0, "BROW_R_LOWER": 1.0},
+  "05_blink": {"EYE_L_OPEN": -1.0, "EYE_R_OPEN": -1.0},
+  "06_wink_L": {"EYE_L_OPEN": -1.0, "CHEEK_L_RAISE": 0.6},
+  "07_wide": {"EYE_L_OPEN": 1.0, "EYE_R_OPEN": 1.0, "BROW_L_RAISE": 0.8, "BROW_R_RAISE": 0.8},
+  "08_cheeks_raise": {"CHEEK_L_RAISE": 1.0, "CHEEK_R_RAISE": 1.0},
+  "09_head_turn": {"HEAD_YAW": 30.0, "HEAD_PITCH": -8.0, "HEAD_ROLL": 10.0, "BROW_L_RAISE": 0.5},
+  "10_head_up_right": {"HEAD_YAW": -30.0, "HEAD_PITCH": 20.0}
+}

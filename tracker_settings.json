@@ -1,0 +1,63 @@
+{
+  "format": "rn.tracker_settings/1",
+
+  "camera": {
+    "name": "Elgato Facecam",
+    "index": 0,
+    "about_choice": "name = (part of) the camera's name; it wins over index. Empty name: use index. run_tracker.bat --list-cameras shows the names.",
+    "backend": "dshow",
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "mirror": true,
+    "about": "mirror=true: the avatar behaves like your reflection (your left brow moves the brow on your left of the screen)."
+  },
+
+  "mediapipe": {
+    "model_path": "models/face_landmarker.task",
+    "min_face_detection_confidence": 0.5,
+    "min_face_presence_confidence": 0.5,
+    "min_tracking_confidence": 0.5
+  },
+
+  "udp": {
+    "send_rate_hz": 30,
+    "targets": [
+      {"name": "godot",   "host": "127.0.0.1", "port": 8765},
+      {"name": "blender", "host": "127.0.0.1", "port": 8766}
+    ]
+  },
+
+  "calibration": {
+    "duration_s": 2.0,
+    "auto_start": true
+  },
+
+  "smoothing": {
+    "about": "Exponential moving average. alpha is per frame at reference_fps: higher = snappier, lower = smoother.",
+    "alpha": 0.28,
+    "reference_fps": 30,
+    "per_control": {
+      "EYE_L_OPEN": 0.65,
+      "EYE_R_OPEN": 0.65
+    }
+  },
+
+  "head": {
+    "gain": {"yaw": 1.0, "pitch": 1.0, "roll": 1.0},
+    "limit_deg": {"yaw": 40, "pitch": 25, "roll": 25},
+    "alpha": 0.22
+  },
+
+  "tracking_loss": {
+    "about": "Face lost: hold the last pose for hold_s, then glide to neutral using return_alpha.",
+    "hold_s": 0.35,
+    "return_alpha": 0.08
+  },
+
+  "debug_view": {
+    "enabled": true,
+    "draw_landmarks": true,
+    "max_width": 960
+  }
+}

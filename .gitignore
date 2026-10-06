@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Downloaded by tools/setup.ps1
+models/*.task
+tests/data/sample_portrait.png
+
+# Godot engine binary and its caches (the project in godot/ is tracked)
+tools/godot/
+godot/.godot/
+
+# Blender backups; the working file and the named milestones are tracked
+blender/backups/
+*.blend1
+
+# Per-frame render folders; the contact sheets directly under renders/<set>/ are tracked
+renders/*/*/
+# contains the downloaded sample portrait
+renders/proto/tracker_view_sample_portrait.png
+
+# Tracing previews: big, and rewritten by tools/trace_reference.py (the .json beside them is tracked)
+references/trace/*_regions.png

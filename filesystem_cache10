@@ -1,0 +1,14 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1791287221
+::res://assets/::1791288275
+face_rig.expanded.json::JSON::-1::1791291829::0::1::::<><><>0<>0<><>::
+robot_prototype.glb::PackedScene::2097026066696393307::1791291829::1791291831::1::::<><><>0<>0<>ecc93d1d651e99ef4a03ffcf2e797b0e<>res://.godot/imported/robot_prototype.glb-32c7128874c781d1fa3eadccb17feb87.scn::
+::res://scenes/::1791287215
+main.tscn::PackedScene::-1::1791287215::0::1::::<><><>0<>0<><>::res://scripts/main.gd<>res://assets/robot_prototype.glb<>res://scripts/face_rig.gd<>res://scripts/udp_receiver.gd
+::res://scripts/::1791287809
+face_rig.gd::GDScript::1053607702839001887::1791287153::0::1::::FaceRig<>Node<><>0<>0<><>::
+main.gd::GDScript::5726373410752312339::1791287809::0::1::::<>Node3D<><>0<>0<><>::
+udp_receiver.gd::GDScript::7408245128126024608::1791287215::0::1::::UdpReceiver<>Node<><>0<>0<><>::
+::res://tests/::1791287243
+parity_expected.json::JSON::-1::1791291829::0::1::::<><><>0<>0<><>::
+parity_test.gd::GDScript::2074749968953129550::1791287243::0::1::::<>SceneTree<><>0<>0<><>::

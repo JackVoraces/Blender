@@ -1,0 +1,5 @@
+# Tracker dependencies (Python 3.12).  MediaPipe brings OpenCV, NumPy and sounddevice with it.
+# Versions are the ones this project was built and tested against.
+mediapipe==1.0.1
+opencv-contrib-python==5.0.0.93
+numpy==2.5.3
